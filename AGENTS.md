@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application architecture
+- Use TanStack Start and Lovable Cloud rather than a separate Express service so authentication and deployment stay integrated.
+- Store privileges in protected user_roles; privileged signup requests need administrator approval to prevent self-escalation.
+- Enforce workflow transitions and MCDA calculations in database functions so all clients share the same security rules.
+- Keep demo data independent from authenticated workspace queries so the public preview never exposes private records.
