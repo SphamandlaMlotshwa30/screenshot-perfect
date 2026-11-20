@@ -1,0 +1,3 @@
+ALTER TABLE public.challenges ADD COLUMN funding_required boolean;
+DROP POLICY challenge_submit ON public.challenges;
+CREATE POLICY challenge_submit ON public.challenges FOR INSERT TO authenticated WITH CHECK(submitted_by=auth.uid() AND NOT is_demo AND status='Submitted' AND weighted_score IS NULL AND allocated_to IS NULL AND supervisor_id IS NULL AND NOT recommended AND funding_required IS NOT NULL AND (public.has_role(auth.uid(),'student') OR public.has_role(auth.uid(),'representative')));

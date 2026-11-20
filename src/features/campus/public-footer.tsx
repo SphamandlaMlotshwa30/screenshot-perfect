@@ -1,0 +1,2 @@
+import { Link } from '@tanstack/react-router';
+export function PublicFooter(){return <footer className="border-t border-border bg-card px-6 py-4 flex flex-wrap justify-between gap-2 text-xs text-muted-foreground"><span>© {new Date().getFullYear()} Campus Challenges</span><span className="flex gap-4"><Link to="/privacy" className="underline">Privacy Policy (POPIA)</Link><Link to="/terms" className="underline">Terms</Link><Link to="/contact" className="underline">Contact</Link></span></footer>;}

@@ -114,6 +114,7 @@ export type Database = {
           department: string
           description: string
           feedback: string
+          funding_required: boolean | null
           id: string
           is_demo: boolean
           priority: string
@@ -133,6 +134,7 @@ export type Database = {
           department: string
           description: string
           feedback?: string
+          funding_required?: boolean | null
           id?: string
           is_demo?: boolean
           priority?: string
@@ -152,6 +154,7 @@ export type Database = {
           department?: string
           description?: string
           feedback?: string
+          funding_required?: boolean | null
           id?: string
           is_demo?: boolean
           priority?: string
