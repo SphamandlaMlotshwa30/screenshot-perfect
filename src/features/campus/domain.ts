@@ -4,6 +4,7 @@ export type Challenge = Database['public']['Tables']['challenges']['Row'];
 export type Criterion = Database['public']['Tables']['criteria']['Row'];
 export type Role = Database['public']['Enums']['app_role'];
 export const roleNames: Record<Role,string> = {admin:'Administrator',supervisor:'Supervisor',representative:'Representative',student:'Student'};
+export const areasOfInterest=['Software and Web Development','Data Science and Machine Learning','IoT and Embedded Systems','Environmental Systems and Water','Renewable Energy and Sustainability','Health and Community Wellbeing','Education and Skill Development','Entrepreneurship and Business Support','Design, Media and Communications','Research'] as const;
 export const challengeSchema = z.object({title:z.string().trim().min(3).max(150),description:z.string().trim().min(10).max(5000),department:z.string().trim().min(2).max(100),category:z.string().trim().min(2).max(80),funding_required:z.preprocess(v=>v==='yes'?true:v==='no'?false:v,z.boolean({message:'Please say whether the project needs funding'})),supporting_file:z.string().max(500).nullable().optional()});
 export const signupSchema = z.object({fullname:z.string().trim().min(2).max(100),member_number:z.string().trim().min(2).max(50),email:z.string().trim().email().max(255),password:z.string().min(8).max(128),confirm:z.string(),requested_role:z.enum(['student','supervisor','representative'])}).refine(x=>x.password===x.confirm,{message:'Passwords do not match',path:['confirm']});
 const id=z.string().uuid();
