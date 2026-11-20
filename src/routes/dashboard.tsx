@@ -5,7 +5,7 @@ import { CampusDashboard } from '@/features/campus/dashboard';
 import { getDemo } from '@/features/campus/campus.functions';
 import { pageMeta, type Challenge, type Criterion } from '@/features/campus/domain';
 
-export const Route=createFileRoute('/dashboard')({head:()=>pageMeta('Public Dashboard','Public campus challenges dashboard.'),component:Page});
+export const Route=createFileRoute('/dashboard')({head:()=>pageMeta('Public Dashboard','Public development challenges dashboard.'),component:Page});
 
 function Page(){
  const load=useServerFn(getDemo);

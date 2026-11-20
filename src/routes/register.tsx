@@ -1,4 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { AuthPage } from '@/features/campus/auth-page';
+import { DccRegistrationPage } from '@/features/campus/dcc-registration-page';
 import { pageMeta } from '@/features/campus/domain';
-export const Route=createFileRoute('/register')({head:()=>pageMeta('Membership Registration','Register to your Campus Challenges account.'),component:()=> <AuthPage register/>});
+
+export const Route = createFileRoute('/register')({
+  head: () => pageMeta('Membership Registration', 'Register for a DCC account.'),
+  component: DccRegistrationPage,
+});
